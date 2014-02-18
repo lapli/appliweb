@@ -1,1 +1,1 @@
-web : gunicorn NomProjet.wsgi 
+web: gunicorn Tomproj.wsgi 
