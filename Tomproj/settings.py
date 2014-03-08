@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tomapp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,8 +58,14 @@ WSGI_APPLICATION = 'Tomproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'BazDjango',
+        'USER': 'beta',
+        'PASSWORD': 'rutha',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -82,8 +89,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+##import dj_database_url
+##DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
